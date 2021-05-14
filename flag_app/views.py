@@ -12,7 +12,9 @@ def get_flag_url(request):
             return HttpResponse("<h1>You're not correct</h1")
     else:
         form = SearchForm()
-    c_name = form.cleaned_data.get("country")
+    c_name = "Armenia"
+    if form.is_valid():
+        c_name = form.cleaned_data.get("country")
     url = "https://restcountries.eu/rest/v2/name/{}".format(c_name)
     answer = requests.get(url).json()
     context = {
