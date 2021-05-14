@@ -9,7 +9,7 @@ def get_flag_url(request):
     if request.method == 'POST':
         form = SearchForm(request.POST)
         if not form.is_valid():
-            return HttpResponse("<h1>You're not correct</h1")
+            return HttpResponse("<h1>You're not correct</h1>")
     else:
         form = SearchForm()
     c_name = "Armenia"
